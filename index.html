@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wavelet Transform</title>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Wavelet Transform</h1>
+    <div class="container">
+      <div class="col">
+        <canvas id="original" width="800" height="800"></canvas>
+        <label class="upload" for="upload">
+          <span>Загрузить изображение</span>
+          <input
+            type="file"
+            id="upload"
+            accept="image/*"
+            onchange="uploadImage(event)"
+          />
+        </label>
+        <button onclick="downloadImage('original')">Скачать</button>
+      </div>
+      <div class="col">
+        <canvas id="transformed" width="800" height="800"></canvas>
+        <label for="cutoff">
+          <span>Cutoff</span>
+          <input
+            type="range"
+            id="cutoff"
+            min="0"
+            max="127"
+            value="0"
+            name="cutoff"
+          />
+          <input
+            type="number"
+            id="cutoff-value"
+            min="0"
+            max="127"
+            value="0"
+            name="cutoff"
+          />
+        </label>
+        <button onclick="downloadImage('transformed')">Скачать</button>
+      </div>
+      <div class="col">
+        <canvas id="transformed-back" width="800" height="800"></canvas>
+        <button onclick="downloadImage('transformed-back')">Скачать</button>
+      </div>
+    </div>
+  </body>
+</html>
